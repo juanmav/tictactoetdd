@@ -13,7 +13,7 @@ TicTacToe.playerTwo = 2;
 
 TicTacToe.prototype.allPositionTaken = function(){
     for( var i = 0; i <= this.board.length -1; i++){
-        if (this.board[i] == 0) {
+        if (this.board[i] === 0) {
             console.log(this.board[i]);
             return false;
         }
@@ -23,7 +23,7 @@ TicTacToe.prototype.allPositionTaken = function(){
 
 TicTacToe.prototype.columnIsTakenByAPlayer= function(){
     for( var i = 0; i <=3; i++){
-        if ((this.board[i] != 0) && ( this.board[i] == this.board[i + 3]) &&  (this.board[i] == this.board[i + 6])){
+        if ((this.board[i] !== 0) && ( this.board[i] === this.board[i + 3]) &&  (this.board[i] === this.board[i + 6])){
             return true;
         }
     }
@@ -32,7 +32,7 @@ TicTacToe.prototype.columnIsTakenByAPlayer= function(){
 
 TicTacToe.prototype.rowIsTakenByAPlayer = function(){
     for( var i = 0; i <=3; i++){
-        if ((this.board[i] != 0) && ( this.board[i] == this.board[i + 1]) &&  (this.board[i] == this.board[i + 2])){
+        if ((this.board[i] !== 0) && ( this.board[i] === this.board[i + 1]) &&  (this.board[i] === this.board[i + 2])){
             return true;
         }
     }
@@ -40,9 +40,9 @@ TicTacToe.prototype.rowIsTakenByAPlayer = function(){
 };
 
 TicTacToe.prototype.diagonalIsTakenByAPlayer = function(){
-    if( (this.board[0] != 0) && (this.board[0] == this.board[4]) && (this.board[0] == this.board[8])){
+    if( (this.board[0] !== 0) && (this.board[0] === this.board[4]) && (this.board[0] === this.board[8])){
         return true;
-    } else if ( (this.board[2] != 0) && (this.board[2] == this.board[4]) && (this.board[2] == this.board[6])) {
+    } else if ( (this.board[2] !== 0) && (this.board[2] === this.board[4]) && (this.board[2] === this.board[6])) {
         return true;
     }
     return false;
@@ -51,10 +51,10 @@ TicTacToe.prototype.diagonalIsTakenByAPlayer = function(){
 TicTacToe.prototype.playerTakePosition = function (position){
     var could = false;
     if (!this.isFinished()){
-        if (this.board[position] == 0){
+        if (this.board[position] === 0){
             console.log('Posicion Tomada');
             this.board[position] = this.nextTurn;
-            this.nextTurn = this.nextTurn == 1 ? 2 : 1;
+            this.nextTurn = this.nextTurn === 1 ? 2 : 1;
             this.printBoard();
             could =  true;
         } else {
@@ -69,7 +69,7 @@ TicTacToe.prototype.playerTakePosition = function (position){
         console.log('El juego ya finalizo:');
         if (this.someoneWin()){
             console.log('El ganador es el jugador numero: ');
-            console.log(this.nextTurn == 1 ? 2 : 1);
+            console.log(this.nextTurn === 1 ? 2 : 1);
         } else {
             console.log('en empate!');
         }
