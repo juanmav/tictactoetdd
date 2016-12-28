@@ -6,6 +6,10 @@ install:
   - npm install -g istanbul
   - npm install
 
+addons:
+    code_climate:
+        repo_token: ebd40fdae11559050a20fcc241895493771999d2eaa6f3bcdb9dfd17440fdb4a
+
 after_success:
   - npm install -g codeclimate-test-reporter
   - codeclimate-test-reporter < coverage/lcov.info
