@@ -1,9 +1,9 @@
 function TicTacToe(){
     this.board = [
-            0,0,0,
-            0,0,0,
-            0,0,0
-        ];
+        0,0,0,
+        0,0,0,
+        0,0,0
+    ];
     this.nextTurn = TicTacToe.playerOne;
 }
 
@@ -55,26 +55,25 @@ TicTacToe.prototype.playerTakePosition = function (position){
             console.log('Posicion Tomada');
             this.board[position] = this.nextTurn;
             this.nextTurn = this.nextTurn === 1 ? 2 : 1;
-            this.printBoard();
             could =  true;
         } else {
             console.log('Posicion Ocupada Intente de nuevo');
-            this.printBoard();
         }
     } else {
         console.log('El juego ya finalizo!');
-        this.printBoard();
+        this.printResult();
     }
-    if (this.isFinished()){
-        console.log('El juego ya finalizo:');
-        if (this.someoneWin()){
-            console.log('El ganador es el jugador numero: ');
-            console.log(this.nextTurn === 1 ? 2 : 1);
-        } else {
-            console.log('en empate!');
-        }
-    }
+    this.printBoard();
     return could;
+};
+
+TicTacToe.prototype.printResult = function () {
+    if (this.someoneWin()){
+        console.log('El ganador es el jugador numero: ');
+        console.log(this.nextTurn === 1 ? 2 : 1);
+    } else {
+        console.log('en empate!');
+    }
 };
 
 // Este metodo no se genero directament e por el TDD
