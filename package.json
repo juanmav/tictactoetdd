@@ -4,7 +4,7 @@
   "description": "Tic Tac Toe Game for TDD learning",
   "main": "index.js",
   "scripts": {
-    "test": "node spec/TicTacToeSpec.js"
+    "test": "istanbul cover spec/TicTacToeSpec.js"
   },
   "keywords": [
     "tictactoe",
