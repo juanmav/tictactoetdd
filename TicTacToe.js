@@ -22,17 +22,26 @@ TicTacToe.prototype.allPositionTaken = function(){
 };
 
 TicTacToe.prototype.columnIsTakenByAPlayer= function(){
-    for( var i = 0; i <=3; i++){
-        if ((this.board[i] !== 0) && ( this.board[i] === this.board[i + 3]) &&  (this.board[i] === this.board[i + 6])){
-            return true;
-        }
-    }
-    return false;
+   return this.lineIsTakenByAPlayer(3);
 };
 
 TicTacToe.prototype.rowIsTakenByAPlayer = function(){
+    return this.lineIsTakenByAPlayer(1);
+};
+
+/**
+ * Este metodo viene por la verificacion de duplicado de codeclimate.com
+ *
+ * rowOrColumn es un entero que dice si es columna o fila.
+ *
+ * 1 para row
+ * 3 para column
+ *
+ * */
+
+TicTacToe.prototype.lineIsTakenByAPlayer = function (rowOrColumn) {
     for( var i = 0; i <=3; i++){
-        if ((this.board[i] !== 0) && ( this.board[i] === this.board[i + 1]) &&  (this.board[i] === this.board[i + 2])){
+        if ((this.board[i] !== 0) && ( this.board[i] === this.board[i + rowOrColumn ]) &&  (this.board[i] === this.board[i + rowOrColumn *2 ])){
             return true;
         }
     }
